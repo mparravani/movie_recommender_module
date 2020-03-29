@@ -182,16 +182,16 @@ if __name__ == '__main__':
     rec = r.Recommender()
 
     # fit recommender
-    rec.fit(reviews_pth='data/train_data.csv', movies_pth= 'data/movies_clean.csv', learning_rate=.01, iters=1)
+    rec.fit(reviews_pth='train_data.csv', movies_pth= 'movies_clean.csv', learning_rate=.01, iters=1)
 
     # predict
     rec.predict_rating(user_id=8, movie_id=2844)
 
     # make recommendations
-    print(rec.make_recommendations(8,'user')) # user in the dataset
-    print(rec.make_recommendations(1,'user')) # user not in dataset
-    print(rec.make_recommendations(1853728)) # movie in the dataset
-    print(rec.make_recommendations(1)) # movie not in dataset
+    print(rec.make_recs(8,'user')) # user in the dataset
+    print(rec.make_recs(1,'user')) # user not in dataset
+    print(rec.make_recs(1853728)) # movie in the dataset
+    print(rec.make_recs(1)) # movie not in dataset
     print(rec.n_users)
     print(rec.n_movies)
     print(rec.num_ratings)
